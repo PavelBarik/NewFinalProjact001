@@ -35,7 +35,10 @@
         <activity
             android:name=".StatisticsActivity"
             android:label="Статистика планирования" />
-        <activity android:name=".NewTask"></activity>
+        <activity android:name=".NewTask">
+            android:label="Расписание"
+
+        </activity>
     </application>
 
 </manifest>

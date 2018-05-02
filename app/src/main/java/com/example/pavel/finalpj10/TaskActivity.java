@@ -130,7 +130,7 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onClick(View view) {
             Intent intent;
-                intent = new Intent(TaskActivity.this, StatisticsActivity.class);
+                intent = new Intent(TaskActivity.this, NewTask.class);
                 startActivity(intent);
             }
         });

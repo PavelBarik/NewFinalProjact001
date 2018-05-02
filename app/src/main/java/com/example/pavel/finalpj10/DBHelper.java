@@ -17,7 +17,12 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String KEY_MESTO = "mesto";
     public static final String KEY_TIME = "time";
     public static final String KEY_DATA = "data";
-
+    public static final String KEY_EDIT1 = "data";
+    public static final String KEY_EDIT2 = "data";
+    public static final String KEY_EDIT3 = "data";
+    public static final String KEY_EDIT4 = "data";
+    public static final String KEY_EDIT5 = "data";
+    public static final String KEY_EDIT6 = "data";
 
     public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
@@ -29,7 +34,7 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable ="create table " + TABLE_CONTACTS + " ( " + KEY_ID + " integer primary key autoincrement, " +KEY_DATA + " text," +
-                KEY_NAZVANIE + " text, " + KEY_MESTO + " text, "+KEY_CHECK +" integer, " + KEY_TIME + " text, "+KEY_ZAMETKA+" text);";
+                KEY_NAZVANIE + " text, " + KEY_MESTO + " text, "+KEY_CHECK +" integer, " + KEY_TIME + " text, "+KEY_ZAMETKA+" text," +KEY_EDIT1+" text,"+ KEY_EDIT2 +" text,"+ KEY_EDIT3 +" text,"+ KEY_EDIT4+" text,"+ KEY_EDIT5 +" text,"+ KEY_EDIT6+" text);";
 //создаётся таблица
         db.execSQL(createTable);
     }
