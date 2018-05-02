@@ -1,6 +1,7 @@
 package com.example.pavel.finalpj10;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -36,7 +37,7 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
     Button Save,Exit,Clear;
     DBHelper dbHelper;
     CheckBox aSwitch;
-
+    static String DATA2;
     String mesto,nazvanie,time,zametka;
     private TextView TimeDisplay;
     private TimePicker mTimePicker;
@@ -89,8 +90,11 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
 
         DaTa = findViewById(R.id.Data);
         TimeDisplay.setText(Null);
-        String DATA2 = mDay + "." + mMonth + "." + mYear;
+
+        DATA2 = mDay + "." + mMonth + "." + mYear;
         DaTa.setText(DATA2);
+
+
         SetTime.setEnabled(false);
         String DATA = mDay + "." + mMonth + "." + mYear;
         dbHelper = new DBHelper(this);

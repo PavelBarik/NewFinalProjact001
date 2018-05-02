@@ -12,13 +12,15 @@
     android:orientation="horizontal">
 
     <TextView
+        android:gravity="center"
         android:textSize="25sp"
+        android:textColor="#ff8818"
         android:layout_width="217dp"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="74dp"
-        android:hint="Дата"
+
         android:id="@+id/Date"/>
 
 </RelativeLayout>
@@ -27,36 +29,37 @@
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:hint="Задача"
-        android:id="@+id/edit1"/>
+        android:id="@+id/Edit1"/>
 
     <EditText
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:hint="Задача"
-        android:id="@+id/edit2"/>
-
-    <EditText
-        android:layout_width="352dp"
-        android:layout_height="wrap_content"
-        android:hint="Задача" android:id="@+id/edit3"/>
+        android:id="@+id/Edit2"/>
 
     <EditText
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:hint="Задача"
-        android:id="@+id/edit4" />
+        android:id="@+id/Edit3"/>
 
     <EditText
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:hint="Задача"
-        android:id="@+id/edit5"/>
+        android:id="@+id/Edit4" />
 
     <EditText
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:hint="Задача"
-        android:id="@+id/edit6"/>
+        android:id="@+id/Edit5"/>
+
+    <EditText
+        android:layout_width="352dp"
+        android:layout_height="wrap_content"
+        android:hint="Задача"
+        android:id="@+id/Edit6"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
