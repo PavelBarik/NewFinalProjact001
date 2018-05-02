@@ -34,7 +34,8 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable ="create table " + TABLE_CONTACTS + " ( " + KEY_ID + " integer primary key autoincrement, " +KEY_DATA + " text," +
-                KEY_NAZVANIE + " text, " + KEY_MESTO + " text, "+KEY_CHECK +" integer, " + KEY_TIME + " text, "+KEY_ZAMETKA+" text," +KEY_EDIT1+" text,"+ KEY_EDIT2 +" text,"+ KEY_EDIT3 +" text,"+ KEY_EDIT4+" text,"+ KEY_EDIT5 +" text,"+ KEY_EDIT6+" text);";
+                KEY_NAZVANIE + " text, " + KEY_MESTO + " text, "+KEY_CHECK +" integer, " + KEY_TIME + " text, "+KEY_ZAMETKA+" text," +KEY_EDIT1+" text,"+
+                KEY_EDIT2 +" text,"+ KEY_EDIT3 +" text,"+ KEY_EDIT4+" text,"+ KEY_EDIT5 +" text,"+ KEY_EDIT6+" text);";
 //создаётся таблица
         db.execSQL(createTable);
     }
