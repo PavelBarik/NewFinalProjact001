@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 public class NewTask extends AppCompatActivity implements View.OnClickListener  {
     EditText edit1, edit2, edit3, edit4, edit5, edit6;
-    String EdIt1, EdIt2, EdIt3, EdIt4, EdIt5, EdIt6;
+    String edIt1, edIt2, edIt3, edIt4, edIt5, edIt6;
     String Data;
     TextView DaTa;
     Button sAvE, DEL, BaCk;
@@ -42,12 +42,12 @@ public class NewTask extends AppCompatActivity implements View.OnClickListener  
         Cursor cursor1 = db.rawQuery(SRAVNENIE, null);
         cursor1.moveToFirst();
         if (cursor1.getCount() != 0) {
-            EdIt1 = cursor1.getString(cursor1.getColumnIndex(DBHelper.KEY_EDIT1));
-            EdIt2 = cursor1.getString(cursor1.getColumnIndex(DBHelper.KEY_EDIT2));
-            EdIt3 = cursor1.getString(cursor1.getColumnIndex(DBHelper.KEY_EDIT3));
-            EdIt4 = cursor1.getString(cursor1.getColumnIndex(DBHelper.KEY_EDIT4));
-            EdIt5 = cursor1.getString(cursor1.getColumnIndex(DBHelper.KEY_EDIT5));
-            EdIt6 = cursor1.getString(cursor1.getColumnIndex(DBHelper.KEY_EDIT6));
+            edIt1 = cursor1.getString(cursor1.getColumnIndex(DBHelper.KEY_EDIT1));
+            edIt2 = cursor1.getString(cursor1.getColumnIndex(DBHelper.KEY_EDIT2));
+            edIt3 = cursor1.getString(cursor1.getColumnIndex(DBHelper.KEY_EDIT3));
+            edIt4 = cursor1.getString(cursor1.getColumnIndex(DBHelper.KEY_EDIT4));
+            edIt5 = cursor1.getString(cursor1.getColumnIndex(DBHelper.KEY_EDIT5));
+            edIt6 = cursor1.getString(cursor1.getColumnIndex(DBHelper.KEY_EDIT6));
         }
         cursor1.close();
         db.close();
