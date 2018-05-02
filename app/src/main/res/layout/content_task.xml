@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.pavel.finalpj10.TaskActivity"
+    tools:showIn="@layout/activity_task"
+    android:orientation="vertical"
+    tools:ignore="NamespaceTypo">
+
+    <TextView
+        android:id="@+id/Data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:textColor="#ff8818"/>
+
+    <EditText
+        android:id="@+id/naz"
+        android:layout_width="361dp"
+        android:layout_height="45sp"
+        android:hint="@string/Nazvanie"
+        android:imeOptions="actionDone"
+        android:singleLine="true"
+        android:maxLength="25" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Установить напоминание"
+        android:id="@+id/swi"
+        />
+
+    <TimePicker
+        android:id="@+id/TimePick"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#ff8818"
+
+        />
+
+    <TextView
+        android:id="@+id/CurTime"
+        android:layout_width="281dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="20sp"
+        android:textColor="#ff8818"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="281dp"
+        android:layout_height="wrap_content"
+        android:text="Сменить время" />
+
+
+    <EditText
+        android:id="@+id/zam"
+        android:layout_width="361dp"
+        android:layout_height="45sp"
+        android:hint="Заметка"
+        android:imeOptions="actionDone"
+        android:singleLine="true"
+        android:maxLength="25" />
+
+    <EditText
+        android:id="@+id/mesto"
+        android:layout_width="361dp"
+        android:layout_height="45sp"
+        android:hint="@string/Mesto"
+        android:imeOptions="actionDone"
+        android:singleLine="true"
+        android:maxLength="25"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/save"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/Save" />
+
+        <Button
+            android:id="@+id/clear"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Удалить" />
+
+        <Button
+            android:id="@+id/exit"
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+
+            android:text="@string/Exit" />
+
+
+    </LinearLayout>
+
+</LinearLayout>
