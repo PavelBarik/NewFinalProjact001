@@ -17,12 +17,12 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String KEY_MESTO = "mesto";
     public static final String KEY_TIME = "time";
     public static final String KEY_DATA = "data";
-    public static final String KEY_EDIT1 = "data";
-    public static final String KEY_EDIT2 = "data";
-    public static final String KEY_EDIT3 = "data";
-    public static final String KEY_EDIT4 = "data";
-    public static final String KEY_EDIT5 = "data";
-    public static final String KEY_EDIT6 = "data";
+    public static final String KEY_EDIT1 = "ediit1";
+    public static final String KEY_EDIT2 = "ediit2";
+    public static final String KEY_EDIT3 = "ediit3";
+    public static final String KEY_EDIT4 = "ediit4";
+    public static final String KEY_EDIT5 = "ediit5";
+    public static final String KEY_EDIT6 = "ediit6";
 
     public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
