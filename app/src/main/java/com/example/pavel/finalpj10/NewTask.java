@@ -33,12 +33,14 @@ public class NewTask extends AppCompatActivity implements View.OnClickListener  
         edit4 = findViewById(R.id.Edit4);
         edit5 = findViewById(R.id.Edit5);
         edit6 = findViewById(R.id.Edit6);
+
         sAvE = findViewById(R.id.SaVe);
         sAvE.setOnClickListener(this);
         DEL = findViewById(R.id.Del);
         DEL.setOnClickListener(this);
         BaCk = findViewById(R.id.Back);
         BaCk.setOnClickListener(this);
+
         dbHelper2 = new DBHelper2(this);
         dbHelper2 = new DBHelper2(getBaseContext());
         SQLiteDatabase db;
@@ -48,7 +50,6 @@ public class NewTask extends AppCompatActivity implements View.OnClickListener  
         Cursor cursor1 = db.rawQuery(SRAVNENIE, null);
         cursor1.moveToFirst();
         if (cursor1.getCount()!=0) {
-
             edIt1 = cursor1.getString(cursor1.getColumnIndex(DBHelper2.KEY_EDIT1));
             edIt2 = cursor1.getString(cursor1.getColumnIndex(DBHelper2.KEY_EDIT2));
             edIt3 = cursor1.getString(cursor1.getColumnIndex(DBHelper2.KEY_EDIT3));
@@ -84,9 +85,9 @@ public class NewTask extends AppCompatActivity implements View.OnClickListener  
                 String SRAVNENIE = "SELECT * FROM "+DBHelper2.TABLE_CONTACTS+" WHERE "+DBHelper2.KEY_DATA+"="+ "\""+Data+"\"" +";";
                 Cursor cursor = db.rawQuery(SRAVNENIE,null);
 
-                String insertQuery = "INSERT INTO " + DBHelper2.TABLE_CONTACTS + " (" + DBHelper2.KEY_EDIT1 + "," +
+                String insertQuery = "INSERT INTO " + DBHelper2.TABLE_CONTACTS + " ("+ DBHelper2.KEY_DATA + ","+ DBHelper2.KEY_EDIT1 + "," +
                         DBHelper2.KEY_EDIT2 + "," + DBHelper2.KEY_EDIT3 + "," + DBHelper2.KEY_EDIT4  + ","+DBHelper2.KEY_EDIT5+","+DBHelper2.KEY_EDIT6+
-                        ") VALUES (\"" + Edite1 +"\", \""+Edite2+"\", \"" +Edite3+ "\", \""+Edite4+"\", \""+Edite5+"\","+"\""+Edite6+"\");";
+                        ") VALUES (\""+ Data+"\", \"" + Edite1 +"\", \""+Edite2+"\", \"" +Edite3+ "\", \""+Edite4+"\", \""+Edite5+"\","+"\""+Edite6+"\");";
                 cursor.moveToFirst();
                 String updateQuery = "UPDATE " + DBHelper2.TABLE_CONTACTS + " SET " + DBHelper2.KEY_EDIT1 +
                         " = \"" + Edite1 + "\", " + DBHelper2.KEY_EDIT2 + "= \"" + Edite2 + "\", " +
