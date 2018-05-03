@@ -11,5 +11,7 @@
         android:layout_height="match_parent"
         android:selectedWeekBackgroundColor="#3cff00"
         android:weekNumberColor="#22ff00"
-        android:weekSeparatorLineColor="#00ff00" />
+        android:weekSeparatorLineColor="#00ff00"
+        android:focusedMonthDateColor="#00ff00"
+        />
 </LinearLayout>
