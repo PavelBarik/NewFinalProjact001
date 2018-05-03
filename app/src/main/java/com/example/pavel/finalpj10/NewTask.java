@@ -13,11 +13,12 @@ import android.widget.TextView;
 public class NewTask extends AppCompatActivity implements View.OnClickListener  {
     EditText edit1, edit2, edit3, edit4, edit5, edit6;
     String edIt1, edIt2, edIt3, edIt4, edIt5, edIt6;
-    String Data;
+    static String Data;
     TextView DaTa;
     Button sAvE, DEL, BaCk;
-    DBHelper dbHelper;
+    DBHelper2 dbHelper2;
     Intent i;
+    String Edite1,Edite2,Edite3,Edite4,Edite5,Edite6;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +26,7 @@ public class NewTask extends AppCompatActivity implements View.OnClickListener  
         DaTa = findViewById(R.id.Date);
         Data = TaskActivity.DATA2;
         DaTa.setText(Data);
+
         edit1 = findViewById(R.id.Edit1);
         edit2 = findViewById(R.id.Edit2);
         edit3 = findViewById(R.id.Edit3);
@@ -32,30 +34,42 @@ public class NewTask extends AppCompatActivity implements View.OnClickListener  
         edit5 = findViewById(R.id.Edit5);
         edit6 = findViewById(R.id.Edit6);
         sAvE = findViewById(R.id.SaVe);
+        sAvE.setOnClickListener(this);
         DEL = findViewById(R.id.Del);
+        DEL.setOnClickListener(this);
         BaCk = findViewById(R.id.Back);
-        dbHelper = new DBHelper(this);
-        dbHelper = new DBHelper(getBaseContext());
+        BaCk.setOnClickListener(this);
+        dbHelper2 = new DBHelper2(this);
+        dbHelper2 = new DBHelper2(getBaseContext());
         SQLiteDatabase db;
-        db = dbHelper.getReadableDatabase();
-        String SRAVNENIE = "SELECT * FROM " + DBHelper.TABLE_CONTACTS + " WHERE " + DBHelper.KEY_DATA + "=" + "\"" + Data + "\"" + ";";
+        db = dbHelper2.getReadableDatabase();
+        Data = DaTa.getText().toString();
+        String SRAVNENIE = "SELECT * FROM "+DBHelper2.TABLE_CONTACTS+" WHERE "+DBHelper2.KEY_DATA+"="+ "\""+ Data +"\"" +";";
         Cursor cursor1 = db.rawQuery(SRAVNENIE, null);
         cursor1.moveToFirst();
-        if (cursor1.getCount() != 0) {
-            edIt1 = cursor1.getString(cursor1.getColumnIndex(DBHelper.KEY_EDIT1));
-            edIt2 = cursor1.getString(cursor1.getColumnIndex(DBHelper.KEY_EDIT2));
-            edIt3 = cursor1.getString(cursor1.getColumnIndex(DBHelper.KEY_EDIT3));
-            edIt4 = cursor1.getString(cursor1.getColumnIndex(DBHelper.KEY_EDIT4));
-            edIt5 = cursor1.getString(cursor1.getColumnIndex(DBHelper.KEY_EDIT5));
-            edIt6 = cursor1.getString(cursor1.getColumnIndex(DBHelper.KEY_EDIT6));
+        if (cursor1.getCount()!=0) {
+
+            edIt1 = cursor1.getString(cursor1.getColumnIndex(DBHelper2.KEY_EDIT1));
+            edIt2 = cursor1.getString(cursor1.getColumnIndex(DBHelper2.KEY_EDIT2));
+            edIt3 = cursor1.getString(cursor1.getColumnIndex(DBHelper2.KEY_EDIT3));
+            edIt4 = cursor1.getString(cursor1.getColumnIndex(DBHelper2.KEY_EDIT4));
+            edIt5 = cursor1.getString(cursor1.getColumnIndex(DBHelper2.KEY_EDIT5));
+            edIt6 = cursor1.getString(cursor1.getColumnIndex(DBHelper2.KEY_EDIT6));
+            edit1.setText(edIt1);
+            edit2.setText(edIt2);
+            edit3.setText(edIt3);
+            edit4.setText(edIt4);
+            edit5.setText(edIt5);
+            edit6.setText(edIt6);
         }
+
         cursor1.close();
         db.close();
     }
 
     @Override
     public void onClick(View view) {
-        String Edite1,Edite2,Edite3,Edite4,Edite5,Edite6;
+
         Edite1 = edit1.getText().toString();
         Edite2 = edit2.getText().toString();
         Edite3 = edit3.getText().toString();
@@ -64,61 +78,60 @@ public class NewTask extends AppCompatActivity implements View.OnClickListener  
         Edite6 = edit6.getText().toString();
         switch (view.getId()){
             case R.id.SaVe:
-                dbHelper = new DBHelper(getBaseContext());
+                dbHelper2 = new DBHelper2(getBaseContext());
                 SQLiteDatabase db;
-                db = dbHelper.getReadableDatabase();
-
-
-                String SRAVNENIE = "SELECT * FROM "+DBHelper.TABLE_CONTACTS+" WHERE "+DBHelper.KEY_DATA+"="+ "\""+Data+"\"" +";";
+                db = dbHelper2.getReadableDatabase();
+                String SRAVNENIE = "SELECT * FROM "+DBHelper2.TABLE_CONTACTS+" WHERE "+DBHelper2.KEY_DATA+"="+ "\""+Data+"\"" +";";
                 Cursor cursor = db.rawQuery(SRAVNENIE,null);
 
-                String insertQuery = "INSERT INTO " + DBHelper.TABLE_CONTACTS + " (" + DBHelper.KEY_EDIT1 + "," +
-                        DBHelper.KEY_EDIT2 + "," + DBHelper.KEY_EDIT3 + "," + DBHelper.KEY_EDIT4 + ","+DBHelper.KEY_EDIT5+","+DBHelper.KEY_EDIT6+
+                String insertQuery = "INSERT INTO " + DBHelper2.TABLE_CONTACTS + " (" + DBHelper2.KEY_EDIT1 + "," +
+                        DBHelper2.KEY_EDIT2 + "," + DBHelper2.KEY_EDIT3 + "," + DBHelper2.KEY_EDIT4  + ","+DBHelper2.KEY_EDIT5+","+DBHelper2.KEY_EDIT6+
                         ") VALUES (\"" + Edite1 +"\", \""+Edite2+"\", \"" +Edite3+ "\", \""+Edite4+"\", \""+Edite5+"\","+"\""+Edite6+"\");";
                 cursor.moveToFirst();
-                String updateQuery = "UPDATE " + DBHelper.TABLE_CONTACTS + " SET " + DBHelper.KEY_EDIT1 +
-                        " = \"" + Edite1 + "\", " + DBHelper.KEY_EDIT2 + "= \"" + Edite2 + "\", " +
-                        DBHelper.KEY_EDIT3 + "= \"" + Edite3+ "\", "+DBHelper.KEY_EDIT4 + "= \"" + Edite4+ "\", "+DBHelper.KEY_EDIT5 + "= \"" + Edite5 + "\", "+DBHelper.KEY_EDIT6 + "= \"" + Edite6 + "\" " +" WHERE " + DBHelper.KEY_DATA + "= \"" + Data +"\";" ;
+                String updateQuery = "UPDATE " + DBHelper2.TABLE_CONTACTS + " SET " + DBHelper2.KEY_EDIT1 +
+                        " = \"" + Edite1 + "\", " + DBHelper2.KEY_EDIT2 + "= \"" + Edite2 + "\", " +
+                        DBHelper2.KEY_EDIT3 + "= \"" + Edite3+ "\", "+DBHelper2.KEY_EDIT4 + "= \"" + Edite4+ "\", "+DBHelper2.KEY_EDIT5 + "= \"" + Edite5 + "\", "+DBHelper2.KEY_EDIT6 + "= \"" + Edite6 + "\" " +" WHERE " + DBHelper2.KEY_DATA + "= \"" + Data +"\";" ;
                 db.close();
 
                 if (cursor.getCount() == 0 ){
-                    dbHelper = new DBHelper(getBaseContext());
-                    db = dbHelper.getWritableDatabase();
+                    dbHelper2 = new DBHelper2(getBaseContext());
+                    db = dbHelper2.getWritableDatabase();
                     db.execSQL(insertQuery);
                     db.close();
                     cursor.close();
                 }else{
-                    dbHelper = new DBHelper(getBaseContext());
-                    db = dbHelper.getWritableDatabase();
+                    dbHelper2 = new DBHelper2(getBaseContext());
+                    db = dbHelper2.getWritableDatabase();
                     db.execSQL(updateQuery);
                     db.close();
                     cursor.close();
                 }
-                i = new Intent(NewTask.this, TaskActivity.class );
+                i = new Intent(NewTask.this, MainActivity.class );
                 startActivity(i);
                 NewTask.this.finish();
                 break;
             case R.id.Back:
-                i = new Intent(NewTask.this, TaskActivity.class );
+                i = new Intent(NewTask.this, MainActivity.class );
                 startActivity(i);
                 NewTask.this.finish();
                 break;
             case R.id.Del:
-                Edite1 = null;
-                Edite2 = null;
-                Edite3 = null;
-                Edite4 = null;
-                Edite5 = null;
-                Edite6 = null;
+                edit1.setText(null);
+                edit2.setText(null);
+                edit3.setText(null);
+                edit4.setText(null);
+                edit5.setText(null);
+                edit6.setText(null);
 
-                dbHelper = new DBHelper(this);
-                dbHelper = new DBHelper(getBaseContext());
+                dbHelper2 = new DBHelper2(this);
+                dbHelper2 = new DBHelper2(getBaseContext());
                 SQLiteDatabase db1;
-                db1 = dbHelper.getReadableDatabase();
-                String deleteQuery = "UPDATE " + DBHelper.TABLE_CONTACTS + " SET " + DBHelper.KEY_EDIT1 +
-                        " = \"" + Edite1 + "\", " + DBHelper.KEY_EDIT2 + "= \"" + Edite2 + "\", " +
-                        DBHelper.KEY_EDIT3 + "= \"" + Edite3+ "\", "+DBHelper.KEY_EDIT4 + "= \"" + Edite4+ "\", "+DBHelper.KEY_EDIT5 + "= \"" + Edite5 + "\", "+DBHelper.KEY_EDIT6 + "= \"" + Edite6 + "\" " +" WHERE " + DBHelper.KEY_DATA + "= \"" + Data +"\";" ;
+                db1 = dbHelper2.getReadableDatabase();
+                String deleteQuery = "DELETE FROM "+DBHelper2.TABLE_CONTACTS+" WHERE "+DBHelper2.KEY_DATA+"="+ "\""+Data+"\"" +";";
                 db1.execSQL(deleteQuery);
+                NewTask.this.finish();
+                i = new Intent(NewTask.this, MainActivity.class );
+                startActivity(i);
                 NewTask.this.finish();
                 break;
 
