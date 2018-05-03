@@ -36,7 +36,7 @@
             android:name=".StatisticsActivity"
             android:label="Статистика планирования" />
         <activity android:name=".NewTask"
-            android:label="Расписание">
+            android:label="Планировщик дня">
 
 
         </activity>

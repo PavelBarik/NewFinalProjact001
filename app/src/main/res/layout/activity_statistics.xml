@@ -23,7 +23,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="15dp"
         android:text="Вами было запланировано:"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        android:textColor="#ff6600"/>
 
     <TextView
         android:id="@+id/textView5"
@@ -34,7 +35,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginEnd="11dp"
         android:text="задач(-и,-a)."
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        android:textColor="#ff6600"/>
 
     <TextView
         android:id="@+id/textView3"
@@ -43,8 +45,9 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView2"
         android:layout_marginTop="23dp"
-        android:text="Ваша должность:"
-        android:textSize="22sp" />
+        android:text="На данный момент по нашим сведеньям вы:"
+        android:textSize="17sp"
+        android:textColor="#ffaf1a"/>
 
     <TextView
         android:id="@+id/textView6"
@@ -55,7 +58,8 @@
         android:layout_marginStart="11dp"
         android:layout_toEndOf="@+id/textView2"
         android:hint="0"
-        android:textSize="17sp" />
+        android:textSize="17sp"
+        android:textColor="#ff6600"/>
 
     <TextView
         android:id="@+id/textView4"
@@ -64,15 +68,17 @@
         android:layout_above="@+id/Table"
         android:layout_centerHorizontal="true"
         android:text="    Трудитесь, планируйте день и   достигайте поставленных целей!"
-        android:textSize="22sp" />
+        android:textSize="22sp"
+        android:textColor="#ff005e"/>
 
     <TextView
         android:id="@+id/textView7"
-        android:layout_width="wrap_content"
+        android:layout_width="365dp"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView3"
-        android:layout_alignBottom="@+id/textView3"
-        android:layout_toEndOf="@+id/textView3"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="83dp"
         android:hint="Звание"
+        android:textColor="#ffaf1a"
         android:textSize="22sp" />
 </RelativeLayout>
