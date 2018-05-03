@@ -30,42 +30,54 @@
         android:layout_height="wrap_content"
         android:hint="Заметка"
         android:id="@+id/Edit1"
-        android:maxLength="44"/>
+        android:maxLength="44"
+        android:imeOptions="actionDone"
+        android:singleLine="true"/>
 
     <EditText
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:hint="Заметка"
         android:id="@+id/Edit2"
-        android:maxLength="44"/>
+        android:maxLength="44"
+        android:imeOptions="actionDone"
+        android:singleLine="true"/>
 
     <EditText
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:hint="Заметка"
         android:id="@+id/Edit3"
-        android:maxLength="44"/>
+        android:maxLength="44"
+        android:imeOptions="actionDone"
+        android:singleLine="true"/>
 
     <EditText
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:hint="Заметка"
         android:id="@+id/Edit4"
-        android:maxLength="44"/>
+        android:maxLength="44"
+        android:imeOptions="actionDone"
+        android:singleLine="true"/>
 
     <EditText
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:hint="Заметка"
         android:id="@+id/Edit5"
-        android:maxLength="44"/>
+        android:maxLength="44"
+        android:imeOptions="actionDone"
+        android:singleLine="true"/>
 
     <EditText
         android:layout_width="352dp"
         android:layout_height="wrap_content"
         android:hint="Заметка"
         android:id="@+id/Edit6"
-        android:maxLength="44"/>
+        android:maxLength="44"
+        android:imeOptions="actionDone"
+        android:singleLine="true"/>
 
     <LinearLayout
         android:layout_width="wrap_content"

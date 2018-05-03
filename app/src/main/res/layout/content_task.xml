@@ -8,7 +8,9 @@
     tools:context="com.example.pavel.finalpj10.TaskActivity"
     tools:showIn="@layout/activity_task"
     android:orientation="vertical"
-    tools:ignore="NamespaceTypo">
+    tools:ignore="NamespaceTypo"
+
+    >
 
     <TextView
         android:id="@+id/Data"
@@ -26,6 +28,8 @@
         android:imeOptions="actionDone"
         android:singleLine="true"
         android:maxLength="25" />
+
+
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -54,7 +58,8 @@
         android:id="@+id/button"
         android:layout_width="281dp"
         android:layout_height="wrap_content"
-        android:text="Сменить время" />
+        android:text="Сменить время"
+        />
 
 
     <EditText
