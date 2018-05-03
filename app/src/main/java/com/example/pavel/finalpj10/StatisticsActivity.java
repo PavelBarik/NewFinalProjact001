@@ -1,9 +1,12 @@
 package com.example.pavel.finalpj10;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,12 +15,14 @@ public class StatisticsActivity extends AppCompatActivity {
     DBHelper dbHelper;
     int check,check1,check2;
     ImageView imageView;
-
+Intent i;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_statistics);
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
         check = 1;
         ImageView imageView = findViewById(R.id.Table);
         num = findViewById(R.id.textView6);
@@ -47,6 +52,17 @@ public class StatisticsActivity extends AppCompatActivity {
             imageView.setImageResource(R.drawable.panda3);
         }
     }
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                i = new Intent(StatisticsActivity.this, MainActivity.class );
+                startActivity(i);
+               StatisticsActivity.this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 }
 

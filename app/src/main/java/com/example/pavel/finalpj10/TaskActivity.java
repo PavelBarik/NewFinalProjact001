@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -34,7 +35,7 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
     EditText Nazvanie,Mesto,Zametka;
     int check;
     String Null;
-    Button Save,Exit,Clear;
+    Button Save,Clear;
     DBHelper dbHelper;
     CheckBox aSwitch;
     static String DATA2;
@@ -58,7 +59,9 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_task);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
         Clear = findViewById(R.id.clear);
         Clear.setOnClickListener(this);
 
@@ -73,8 +76,7 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
 
         Null = "Напоминание не установлено.";
 
-        Exit = findViewById(R.id.exit);
-        Exit.setOnClickListener(this);
+
 
         setCurrentTime();
         ButtonListener();
@@ -141,28 +143,36 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_settings) {
+            i = new Intent(TaskActivity.this, StatisticsActivity.class);
+            startActivity(i);
+        }
+        switch (item.getItemId()) {
+
+
+            case android.R.id.home:
+                i = new Intent(TaskActivity.this, MainActivity.class );
+                startActivity(i);
+                TaskActivity.this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            Intent intent;
-            intent = new Intent(TaskActivity.this, StatisticsActivity.class);
-            startActivity(intent);
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
 
 
@@ -314,11 +324,7 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(i);
                 TaskActivity.this.finish();
                 break;
-            case R.id.exit:
-                i = new Intent(TaskActivity.this, MainActivity.class );
-                startActivity(i);
-                TaskActivity.this.finish();
-                break;
+
             case R.id.clear:
                 dbHelper = new DBHelper(this);
                 dbHelper = new DBHelper(getBaseContext());

@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="25sp"
-        android:textColor="#ff8818"/>
+        android:textColor="#8f18ff"/>
 
     <EditText
         android:id="@+id/naz"
@@ -38,7 +38,7 @@
         android:id="@+id/TimePick"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="#ff8818"
+        android:background="#8f18ff"
 
         />
 
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:textSize="20sp"
-        android:textColor="#ff8818"/>
+        android:textColor="#8f18ff"/>
 
     <Button
         android:id="@+id/button"
@@ -82,25 +82,17 @@
 
         <Button
             android:id="@+id/save"
-            android:layout_width="120dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/Save" />
 
         <Button
             android:id="@+id/clear"
-            android:layout_width="120dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Удалить" />
-
-        <Button
-            android:id="@+id/exit"
-            android:layout_width="120dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-
-            android:text="@string/Exit" />
 
 
     </LinearLayout>

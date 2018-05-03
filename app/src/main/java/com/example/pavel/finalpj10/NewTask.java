@@ -3,8 +3,10 @@ package com.example.pavel.finalpj10;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +17,7 @@ public class NewTask extends AppCompatActivity implements View.OnClickListener  
     String edIt1, edIt2, edIt3, edIt4, edIt5, edIt6;
     static String Data;
     TextView DaTa;
-    Button sAvE, DEL, BaCk;
+    Button sAvE, DEL;
     DBHelper2 dbHelper2;
     Intent i;
     String Edite1,Edite2,Edite3,Edite4,Edite5,Edite6;
@@ -34,12 +36,15 @@ public class NewTask extends AppCompatActivity implements View.OnClickListener  
         edit5 = findViewById(R.id.Edit5);
         edit6 = findViewById(R.id.Edit6);
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setHomeButtonEnabled(true);
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         sAvE = findViewById(R.id.SaVe);
         sAvE.setOnClickListener(this);
         DEL = findViewById(R.id.Del);
         DEL.setOnClickListener(this);
-        BaCk = findViewById(R.id.Back);
-        BaCk.setOnClickListener(this);
+
 
         dbHelper2 = new DBHelper2(this);
         dbHelper2 = new DBHelper2(getBaseContext());
@@ -66,6 +71,19 @@ public class NewTask extends AppCompatActivity implements View.OnClickListener  
 
         cursor1.close();
         db.close();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                i = new Intent(NewTask.this, MainActivity.class );
+                startActivity(i);
+                NewTask.this.finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
@@ -111,11 +129,7 @@ public class NewTask extends AppCompatActivity implements View.OnClickListener  
                 startActivity(i);
                 NewTask.this.finish();
                 break;
-            case R.id.Back:
-                i = new Intent(NewTask.this, MainActivity.class );
-                startActivity(i);
-                NewTask.this.finish();
-                break;
+
             case R.id.Del:
                 edit1.setText(null);
                 edit2.setText(null);
