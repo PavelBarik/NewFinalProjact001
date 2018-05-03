@@ -22,12 +22,12 @@
 
     <EditText
         android:id="@+id/naz"
-        android:layout_width="361dp"
+        android:layout_width="352dp"
         android:layout_height="45sp"
         android:hint="@string/Nazvanie"
         android:imeOptions="actionDone"
-        android:singleLine="true"
-        android:maxLength="25" />
+        android:maxLength="25"
+        android:singleLine="true" />
 
 
 
@@ -69,7 +69,7 @@
         android:hint="Заметка"
         android:imeOptions="actionDone"
         android:singleLine="true"
-        android:maxLength="25" />
+        android:maxLength="44" />
 
     <EditText
         android:id="@+id/mesto"
@@ -78,7 +78,7 @@
         android:hint="@string/Mesto"
         android:imeOptions="actionDone"
         android:singleLine="true"
-        android:maxLength="25"/>
+        android:maxLength="44"/>
 
     <LinearLayout
         android:layout_width="match_parent"
