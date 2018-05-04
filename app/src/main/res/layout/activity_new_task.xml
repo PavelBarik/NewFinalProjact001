@@ -30,7 +30,7 @@
         android:layout_height="wrap_content"
         android:hint="Заметка"
         android:id="@+id/Edit1"
-        android:maxLength="44"
+        android:maxLength="40"
         android:imeOptions="actionDone"
         android:singleLine="true"/>
 
@@ -39,7 +39,7 @@
         android:layout_height="wrap_content"
         android:hint="Заметка"
         android:id="@+id/Edit2"
-        android:maxLength="44"
+        android:maxLength="40"
         android:imeOptions="actionDone"
         android:singleLine="true"/>
 
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:hint="Заметка"
         android:id="@+id/Edit3"
-        android:maxLength="44"
+        android:maxLength="40"
         android:imeOptions="actionDone"
         android:singleLine="true"/>
 
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:hint="Заметка"
         android:id="@+id/Edit4"
-        android:maxLength="44"
+        android:maxLength="40"
         android:imeOptions="actionDone"
         android:singleLine="true"/>
 
@@ -66,7 +66,7 @@
         android:layout_height="wrap_content"
         android:hint="Заметка"
         android:id="@+id/Edit5"
-        android:maxLength="44"
+        android:maxLength="40"
         android:imeOptions="actionDone"
         android:singleLine="true"/>
 
@@ -75,7 +75,7 @@
         android:layout_height="wrap_content"
         android:hint="Заметка"
         android:id="@+id/Edit6"
-        android:maxLength="44"
+        android:maxLength="40"
         android:imeOptions="actionDone"
         android:singleLine="true"/>
 
@@ -88,13 +88,16 @@
             android:id="@+id/SaVe"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:text="Сохранить" />
+            android:text="Сохранить"
+            />
 
         <Button
             android:id="@+id/Del"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
-            android:text="Удалить" />
+            android:text="Удалить"
+
+            />
 
     </LinearLayout>
 

@@ -154,4 +154,3 @@ public class NewTask extends AppCompatActivity implements View.OnClickListener  
 
     }
 }
-
