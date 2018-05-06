@@ -35,11 +35,10 @@
         <activity
             android:name=".StatisticsActivity"
             android:label="Статистика планирования" />
-        <activity android:name=".NewTask"
-            android:label="Планировщик дня">
-
-
-        </activity>
+        <activity
+            android:name=".NewTask"
+            android:label="Планировщик дня"></activity>
+        <activity android:name=".ProgressActivity"></activity>
     </application>
 
 </manifest>
