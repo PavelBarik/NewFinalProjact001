@@ -37,8 +37,10 @@
             android:label="Статистика планирования" />
         <activity
             android:name=".NewTask"
-            android:label="Планировщик дня"></activity>
-        <activity android:name=".ProgressActivity"></activity>
+            android:label="Планировщик дня"/>
+        <activity android:name=".ProgressActivity"
+            android:label="Достижения"
+        />
     </application>
 
 </manifest>

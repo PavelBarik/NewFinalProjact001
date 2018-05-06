@@ -8,7 +8,7 @@
         android:title="Статистика"
         app:showAsAction="never" />
     <item
-        android:id="@+id/action_dostijenia"
+        android:id="@+id/action_progress"
         android:orderInCategory="100"
         android:title="Достижения"
         app:showAsAction="never" />
