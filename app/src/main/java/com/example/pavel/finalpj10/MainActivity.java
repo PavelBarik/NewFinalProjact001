@@ -19,7 +19,8 @@ public class MainActivity extends AppCompatActivity {
     DBHelper dbHelper;
     CalendarView calendarView;
     ImageView imageView;
-    TextView num,zv,text;
+    TextView text;
+    Boolean flag;
 
     int check,check1,check2;
     Dialog dialog;
@@ -28,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        CalendarView calendarView = (CalendarView) findViewById(R.id.calendarView1);
+        CalendarView calendarView = findViewById(R.id.calendarView1);
         dialog = new Dialog(MainActivity.this);
-        imageView = findViewById(R.id.image_progress);
+        imageView = dialog.findViewById(R.id.image_progress);
         text = dialog.findViewById(R.id.text_progress);
         // Установите заголовок
         dialog.setTitle("Достижение");
@@ -52,11 +53,11 @@ public class MainActivity extends AppCompatActivity {
         check2 = cursor1.getCount();
 
 
-        if (check2 == 3) {
-
+        if (check2 == 3 ) {
             imageView.setImageResource(R.drawable.progress);
             text.setText("Спасибо за то что вы используете наше приложение. Вот вам награда!");
             dialog.show();
+
         }
 
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
