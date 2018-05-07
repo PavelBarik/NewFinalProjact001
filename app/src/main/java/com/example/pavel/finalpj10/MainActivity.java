@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (check2 == 3) {
+
             imageView.setImageResource(R.drawable.progress);
             text.setText("Спасибо за то что вы используете наше приложение. Вот вам награда!");
             dialog.show();
