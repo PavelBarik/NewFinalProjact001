@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     Dialog dialog;
     String SAVED_NUM = "0";
     String Int1 = "1";
+    static int image1, image2;
 
 
 
@@ -77,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
             SharedPreferences.Editor e = sp.edit();
             e.putBoolean("hasVisited", true);
             e.apply();
+
         }
         if (!hasVisited1) {
 
