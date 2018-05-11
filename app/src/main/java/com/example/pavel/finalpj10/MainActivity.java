@@ -72,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
         if (check2 == 3 && !hasVisited ) {
 
             imageView.setImageResource(R.drawable.progress1);
-            text.setText("Мы заметили что вы много трудитесь! Вот вам награда за работу!");
+            text.setText("Мы заметили, что вы много трудитесь! Вот вам награда за работу!");
             dialog.show();
             SharedPreferences.Editor e = sp.edit();
             e.putBoolean("hasVisited", true);
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
         if (!hasVisited1) {
 
             imageView.setImageResource(R.drawable.progress);
-            text.setText("Спасибо за то что вы используете наше приложение. Вот вам награда!");
+            text.setText("Спасибо за то, что вы используете наше приложение. Вот вам награда!");
             dialog.show();
             SharedPreferences.Editor e = sp1.edit();
             e.putBoolean("hasVisited1", true);

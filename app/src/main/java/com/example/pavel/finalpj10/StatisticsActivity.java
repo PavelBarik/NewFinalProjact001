@@ -31,7 +31,7 @@ Intent i;
         dbHelper = new DBHelper(getBaseContext());
         SQLiteDatabase db;
         db = dbHelper.getReadableDatabase();
-        String SRAVNENIE = "SELECT * FROM " + DBHelper.TABLE_CONTACTS + " WHERE " + DBHelper.KEY_CHECK + "=" + "\"" + check + "\"" + ";";
+        String SRAVNENIE = "SELECT * FROM " + DBHelper.TABLE_CONTACTS + ";";
         Cursor cursor1 = db.rawQuery(SRAVNENIE, null);
         cursor1.moveToFirst();
         check1 = cursor1.getCount();
@@ -44,11 +44,11 @@ Intent i;
             imageView.setImageResource(R.drawable.panda1);
         }
         if (check2 >= 16 && check2<=30) {
-            zv.setText("Панда начинающая трудиться.");
+            zv.setText("Панда, начинающая трудиться.");
             imageView.setImageResource(R.drawable.panda2);
         }
         if (check2 >= 31) {
-            zv.setText("Панда трудяга.");
+            zv.setText("Панда - трудяга.");
             imageView.setImageResource(R.drawable.panda3);
         }
     }
