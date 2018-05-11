@@ -9,8 +9,9 @@ import android.widget.ImageView;
 
 public class ProgressActivity extends AppCompatActivity {
 Intent i;
-ImageView imageView1,imageView2;
+ImageView imageView1,imageView2,imageView3;
 
+int image11,image22;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,8 +21,21 @@ ImageView imageView1,imageView2;
         actionBar.setDisplayHomeAsUpEnabled(true);
         imageView1 = findViewById(R.id.image_progress1);
         imageView2 = findViewById(R.id.image_progress2);
-
+        imageView3 = findViewById(R.id.image_progress);
+        image11 = MainActivity.image1;
+        image22 = NewTask.int2;
+        if(image11 == 1){
+            imageView2.setVisibility(ImageView.VISIBLE);
+        }else {
+            imageView2.setVisibility(ImageView.INVISIBLE);
+        }
+        if(image22 == 1){
+            imageView3.setVisibility(ImageView.VISIBLE);
+        }else {
+            imageView3.setVisibility(ImageView.INVISIBLE);
+        }
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

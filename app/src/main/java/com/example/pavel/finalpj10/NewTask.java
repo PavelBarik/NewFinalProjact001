@@ -1,6 +1,9 @@
 package com.example.pavel.finalpj10;
 
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.ActionBar;
@@ -10,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class NewTask extends AppCompatActivity implements View.OnClickListener  {
@@ -21,6 +25,15 @@ public class NewTask extends AppCompatActivity implements View.OnClickListener  
     DBHelper2 dbHelper2;
     Intent i;
     String Edite1,Edite2,Edite3,Edite4,Edite5,Edite6;
+    ImageView imageView;
+    Dialog dialog;
+    SharedPreferences sharedPreferences;
+    public static final String APP_PREFERENCES = "mysettings";
+    SharedPreferences mSettings;
+    private static final String MY_SETTINGS = "my_settings";
+    static int int2;
+    TextView text;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,6 +57,36 @@ public class NewTask extends AppCompatActivity implements View.OnClickListener  
         sAvE.setOnClickListener(this);
         DEL = findViewById(R.id.Del);
         DEL.setOnClickListener(this);
+
+        dialog = new Dialog(NewTask.this);
+        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        // Установите заголовок
+        dialog.setTitle("Достижение");
+        // Передайте ссылку на разметку
+        dialog.setContentView(R.layout.dialog);
+
+        // Найдите элемент TextView внутри вашей разметки
+        // и установите ему соответствующий текст
+        imageView = dialog.findViewById(R.id.image_progress);
+        text = dialog.findViewById(R.id.text_progress);
+        SharedPreferences sp2 = getSharedPreferences(MY_SETTINGS, Context.MODE_PRIVATE);
+
+int2 = 0;
+// проверяем, первый ли раз открывается программа
+        boolean hasVisited2 = sp2.getBoolean("hasVisited2", false);
+        if (hasVisited2){
+        int2 =1;
+        }
+
+        if (!hasVisited2) {
+
+            imageView.setImageResource(R.drawable.progress2);
+            text.setText("Вы решили заплпнировать свой день? Отлично! Вот вам награда!");
+            dialog.show();
+            SharedPreferences.Editor e = sp2.edit();
+            e.putBoolean("hasVisited2", true);
+            e.apply();
+        }
 
 
         dbHelper2 = new DBHelper2(this);

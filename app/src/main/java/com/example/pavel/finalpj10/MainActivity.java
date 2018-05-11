@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     Dialog dialog;
     String SAVED_NUM = "0";
     String Int1 = "1";
-    static int image1, image2;
+    static int image1;
 
 
 
@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         // и установите ему соответствующий текст
         imageView = dialog.findViewById(R.id.image_progress);
         text = dialog.findViewById(R.id.text_progress);
-
+        image1 = 0;
 
         check = 1;
         dbHelper = new DBHelper(this);
@@ -70,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences sp1 = getSharedPreferences(MY_SETTINGS, Context.MODE_PRIVATE);
 // проверяем, первый ли раз открывается программа
         boolean hasVisited1 = sp.getBoolean("hasVisited1", false);
+        if (hasVisited){
+            image1 =1;
+        }
         if (check2 == 3 && !hasVisited ) {
 
             imageView.setImageResource(R.drawable.progress1);
@@ -78,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
             SharedPreferences.Editor e = sp.edit();
             e.putBoolean("hasVisited", true);
             e.apply();
+            image1 = 1;
 
         }
         if (!hasVisited1) {
