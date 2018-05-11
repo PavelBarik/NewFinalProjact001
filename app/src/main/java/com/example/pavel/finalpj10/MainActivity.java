@@ -2,7 +2,9 @@ package com.example.pavel.finalpj10;
 
 
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -20,10 +22,17 @@ public class MainActivity extends AppCompatActivity {
     CalendarView calendarView;
     ImageView imageView;
     TextView text;
+    SharedPreferences sharedPreferences;
     Boolean flag;
-
+    public static final String APP_PREFERENCES = "mysettings";
+    SharedPreferences mSettings;
+    private static final String MY_SETTINGS = "my_settings";
     int check,check1,check2;
     Dialog dialog;
+    String SAVED_NUM = "0";
+    String Int1 = "1";
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,14 +40,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         CalendarView calendarView = findViewById(R.id.calendarView1);
         dialog = new Dialog(MainActivity.this);
-        imageView = dialog.findViewById(R.id.image_progress);
-        text = dialog.findViewById(R.id.text_progress);
+        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         // Установите заголовок
         dialog.setTitle("Достижение");
         // Передайте ссылку на разметку
         dialog.setContentView(R.layout.dialog);
+
         // Найдите элемент TextView внутри вашей разметки
         // и установите ему соответствующий текст
+        imageView = dialog.findViewById(R.id.image_progress);
+        text = dialog.findViewById(R.id.text_progress);
 
 
         check = 1;
@@ -52,14 +63,30 @@ public class MainActivity extends AppCompatActivity {
         check1 = cursor1.getCount();
         check2 = cursor1.getCount();
 
+        SharedPreferences sp = getSharedPreferences(MY_SETTINGS, Context.MODE_PRIVATE);
+// проверяем, первый ли раз открывается программа
+        boolean hasVisited = sp.getBoolean("hasVisited", false);
+        SharedPreferences sp1 = getSharedPreferences(MY_SETTINGS, Context.MODE_PRIVATE);
+// проверяем, первый ли раз открывается программа
+        boolean hasVisited1 = sp.getBoolean("hasVisited1", false);
+        if (check2 == 3 && !hasVisited ) {
 
-        if (check2 == 3 ) {
+            imageView.setImageResource(R.drawable.progress1);
+            text.setText("Мы заметили что вы много трудитесь! Вот вам награда за работу!");
+            dialog.show();
+            SharedPreferences.Editor e = sp.edit();
+            e.putBoolean("hasVisited", true);
+            e.apply();
+        }
+        if (!hasVisited1) {
+
             imageView.setImageResource(R.drawable.progress);
             text.setText("Спасибо за то что вы используете наше приложение. Вот вам награда!");
             dialog.show();
-
+            SharedPreferences.Editor e = sp1.edit();
+            e.putBoolean("hasVisited1", true);
+            e.apply();
         }
-
         calendarView.setOnDateChangeListener(new CalendarView.OnDateChangeListener() {
 
             @Override

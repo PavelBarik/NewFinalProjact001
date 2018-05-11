@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="300sp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <TextView
+        android:id="@+id/text_progress"
         android:layout_width="249dp"
-        android:layout_height="wrap_content"
+        android:layout_height="142dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="143dp"
         android:gravity="center"
         android:hint="Спасибо за то что вы используете наше приложение. Вот вам награда!"
-        android:textSize="20sp"
-        android:id="@+id/text_progress"/>
+        android:textSize="20sp" />
 
     <ImageView
-        android:layout_width="142dp"
-        android:layout_height="172dp"
+        android:id="@+id/image_progress"
+        android:layout_width="222dp"
+        android:layout_height="137dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="86dp"
 
-        android:id="@+id/image_progress"/>
+        android:layout_marginTop="30dp" />
 </RelativeLayout>

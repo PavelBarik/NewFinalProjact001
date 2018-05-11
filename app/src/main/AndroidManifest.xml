@@ -34,12 +34,15 @@
 
         <activity
             android:name=".StatisticsActivity"
-            android:label="Статистика планирования" />
+            android:label="Статистика планирования"
+            android:screenOrientation="portrait"/>
         <activity
             android:name=".NewTask"
-            android:label="Планировщик дня"/>
+            android:label="Планировщик дня"
+            android:screenOrientation="portrait"/>
         <activity android:name=".ProgressActivity"
             android:label="Достижения"
+            android:screenOrientation="portrait"
         />
     </application>
 
