@@ -1,6 +1,8 @@
 package com.example.pavel.finalpj10;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -12,6 +14,9 @@ Intent i;
 ImageView imageView1,imageView2,imageView3;
 
 int image11,image22;
+public static final String APP_PREFERENCES = "mysettings";
+    SharedPreferences mSettings;
+    private static final String MY_SETTINGS = "my_settings";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,12 +29,19 @@ int image11,image22;
         imageView3 = findViewById(R.id.image_progress);
         image11 = MainActivity.image1;
         image22 = NewTask.int2;
+        mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        SharedPreferences sp2 = getSharedPreferences(MY_SETTINGS, Context.MODE_PRIVATE);
+
+
+// проверяем, первый ли раз открывается программа
+        boolean hasVisited2 = sp2.getBoolean("hasVisited2", false);
+
         if(image11 == 1){
             imageView2.setVisibility(ImageView.VISIBLE);
         }else {
             imageView2.setVisibility(ImageView.INVISIBLE);
         }
-        if(image22 == 1){
+        if(hasVisited2){
             imageView3.setVisibility(ImageView.VISIBLE);
         }else {
             imageView3.setVisibility(ImageView.INVISIBLE);

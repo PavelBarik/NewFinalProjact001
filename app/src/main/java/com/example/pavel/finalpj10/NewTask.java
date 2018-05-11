@@ -86,6 +86,7 @@ int2 = 0;
             SharedPreferences.Editor e = sp2.edit();
             e.putBoolean("hasVisited2", true);
             e.apply();
+            int2 =1;
         }
 
 
