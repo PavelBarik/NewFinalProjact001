@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         dbHelper = new DBHelper(getBaseContext());
         SQLiteDatabase db;
         db = dbHelper.getReadableDatabase();
-        String SRAVNENIE = "SELECT * FROM " + DBHelper.TABLE_CONTACTS + " WHERE " + DBHelper.KEY_CHECK + "=" + "\"" + check + "\"" + ";";
+        String SRAVNENIE = "SELECT * FROM " + DBHelper.TABLE_CONTACTS + ";";
         Cursor cursor1 = db.rawQuery(SRAVNENIE, null);
         cursor1.moveToFirst();
         check1 = cursor1.getCount();
