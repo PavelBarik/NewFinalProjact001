@@ -81,7 +81,7 @@ int2 = 0;
         if (!hasVisited2) {
 
             imageView.setImageResource(R.drawable.progress2);
-            text.setText("Вы решили заплпнировать свой день? Отлично! Вот вам награда!");
+            text.setText("Вы решили запланировать свой день? Отлично! Вот вам награда!");
             dialog.show();
             SharedPreferences.Editor e = sp2.edit();
             e.putBoolean("hasVisited2", true);
