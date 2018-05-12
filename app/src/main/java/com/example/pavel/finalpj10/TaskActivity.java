@@ -154,6 +154,10 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
             i = new Intent(TaskActivity.this, ProgressActivity.class);
             startActivity(i);
         }
+        if (id == R.id.action_question) {
+            i = new Intent(TaskActivity.this, QuestionActivity.class);
+            startActivity(i);
+        }
         switch (item.getItemId()) {
 
 

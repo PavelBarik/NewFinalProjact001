@@ -12,5 +12,10 @@
         android:orderInCategory="100"
         android:title="Статистика"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_question"
+        android:orderInCategory="100"
+        android:title="Помощь"
+        app:showAsAction="never" />
 
 </menu>

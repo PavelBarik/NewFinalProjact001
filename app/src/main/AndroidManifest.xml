@@ -35,15 +35,19 @@
         <activity
             android:name=".StatisticsActivity"
             android:label="Статистика планирования"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".NewTask"
             android:label="Планировщик дня"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".ProgressActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ProgressActivity"
             android:label="Достижения"
+            android:screenOrientation="portrait" />
+        <activity android:name=".QuestionActivity"
             android:screenOrientation="portrait"
-        />
+            android:label="Помощь"
+            />
     </application>
 
 </manifest>

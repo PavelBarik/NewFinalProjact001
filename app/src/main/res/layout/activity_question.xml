@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".QuestionActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:hint="Помощь"
+
+        android:id="@+id/textq1"/>
+
+    <TextView
+        android:id="@+id/textq2"
+        android:layout_width="354dp"
+        android:layout_height="423dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="55dp"
+        android:gravity="center"
+        android:hint="Чтобы создать заметку нажмите на желаемую дату. Заполните нужные вам поля заметки, так же вы можете установить звуковое напоминание выбрав пункт 'Установить напоминание'. Так же вы можете запланировать свой день надав на кнопку с человечком в нижнем правом углу экрана. В верхнем правом углу можно найти троеточие, выбрав его вы можете перейти во вкладки: 'Достижения' и 'Статистика'. Надеемся что наше приложение будет полезным для вас. "
+        android:textSize="22sp" />
+</RelativeLayout>
