@@ -23,7 +23,7 @@ public class SplashActivity extends AppCompatActivity {
         logo.startAnimation(starAnim);
         textView=findViewById(R.id.textView);
 
-        
+
         intent = new Intent(SplashActivity.this, MainActivity.class);
 
         starAnim.setAnimationListener(new Animation.AnimationListener() {
