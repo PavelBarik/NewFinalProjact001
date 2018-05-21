@@ -32,7 +32,9 @@ public class MainActivity extends AppCompatActivity {
     String SAVED_NUM = "0";
     String Int1 = "1";
     static int image1;
-
+    long hours,minuts,nowtime;
+    String hours1,minuts2;
+    String TimeString;
 
 
     @Override
@@ -63,6 +65,33 @@ public class MainActivity extends AppCompatActivity {
         cursor1.moveToFirst();
         check1 = cursor1.getCount();
         check2 = cursor1.getCount();
+
+        TimeString=TaskActivity.TIME;
+        if(TimeString != null) {
+            Intent intentService = new Intent(this, ReminderService.class);
+            hours1 = TimeString.substring(0, 1);
+            minuts2 = TimeString.substring(4, 5);
+            hours = Long.parseLong(hours1);
+            minuts = Long.parseLong(minuts2);
+            hours = hours * 3600000;
+            minuts = minuts * 60000;
+            intentService.putExtra("hours", hours);
+            intentService.putExtra("minuts", minuts);
+            nowtime = System.currentTimeMillis();
+            intentService.putExtra("nowtime", nowtime);
+
+        startService(intentService);
+
+        boolean onOffService = true;
+        if(onOffService) {
+
+            ReminderService.setServiceAlarm(this, onOffService);
+            onOffService = false;
+        }
+
+
+        }
+
 
         SharedPreferences sp = getSharedPreferences(MY_SETTINGS, Context.MODE_PRIVATE);
 // проверяем, первый ли раз открывается программа
@@ -116,16 +145,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        /*Intent intentService = new Intent(this, ReminderService.class);
-        startService(intentService);
 
-        boolean onOffService = true;
-        if(onOffService) {
 
-            ReminderService.setServiceAlarm(this, onOffService);
-            onOffService = false;
-        }
-
-*/
     }
 }

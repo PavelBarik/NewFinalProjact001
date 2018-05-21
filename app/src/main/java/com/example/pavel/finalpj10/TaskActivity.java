@@ -51,7 +51,7 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
     int mMonth;
     int mDay ;
     int defaultValue = 0;
-
+static String TIME;
     static final int TIME_DIALOG_ID = 999;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -275,7 +275,7 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick (View view){
 
-        String TIME = TimeDisplay.getText().toString();
+       TIME = TimeDisplay.getText().toString();
         String NAZVANIE = Nazvanie.getText().toString();
         String ZAMETKA =Zametka.getText().toString();
         String MESTO = Mesto.getText().toString();

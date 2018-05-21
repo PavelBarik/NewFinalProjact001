@@ -41,17 +41,34 @@ public class ReminderService extends IntentService {
         // существующее уведомление. Другой аргумент => новое уведомление
     }
 
-  /*  public static void setServiceAlarm(Context context, boolean onOffService){
+    public static void setServiceAlarm(Context context, boolean onOffService) {
         Intent intent = new Intent(context, ReminderService.class);
         PendingIntent pIntent = PendingIntent.getService(context, 0, intent, 0);
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(context.ALARM_SERVICE);
-        if(onOffService){
-            alarmManager.setRepeating(AlarmManager.RTC, System.currentTimeMillis(), 0, pIntent);
 
-        }else {
-            alarmManager.cancel(pIntent);
-            pIntent.cancel();
-        }
+       long hours1, minuts1, nowtime, nexttime, raznitsa;
+        int defaultValue = 0;
+        hours1 = intent.getIntExtra("hours", defaultValue);
+        minuts1 = intent.getIntExtra("minuts", defaultValue);
+        nowtime = intent.getIntExtra("nowtime", defaultValue);
+
+        while (true){
+            for (int i = 1; i<10000;i++);
+                nowtime = System.currentTimeMillis();
+                nexttime = hours1 + minuts1;
+                raznitsa = nexttime - nowtime;
+
+            if (raznitsa<3000) {
+                if (onOffService) {
+                    alarmManager.setRepeating(AlarmManager.RTC, System.currentTimeMillis(), 0, pIntent);
+
+                } else {
+                    alarmManager.cancel(pIntent);
+                    pIntent.cancel();
+                }
+            }
+
     }
-*/
+    }
+
 }
