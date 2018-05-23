@@ -1,7 +1,10 @@
 package com.example.pavel.finalpj10;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.os.Bundle;
 import android.os.Parcelable;
+import android.os.SystemClock;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.ActionBar;
@@ -331,6 +334,27 @@ static String TIME;
                 i = new Intent(TaskActivity.this, MainActivity.class );
                 startActivity(i);
                 TaskActivity.this.finish();
+
+                Log.i("Готово", "setAlarm");
+
+                Intent intent = new Intent(TaskActivity.this, ReminderService.class);
+                intent.setAction(Intent.ACTION_MAIN);
+                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+
+                PendingIntent pendingIntent = PendingIntent.getService(TaskActivity.this, 0,
+                        intent, 0);
+
+                int alarmType = AlarmManager.RTC;
+                final int FIFTEEN_SEC_MILLIS = 15000;
+
+                AlarmManager alarmManager = (AlarmManager)
+                        TaskActivity.this.getSystemService(TaskActivity.this.ALARM_SERVICE);
+
+                alarmManager.setExact(alarmType, System.currentTimeMillis() + FIFTEEN_SEC_MILLIS,
+                         pendingIntent);
+                Log.i("RepeatingAlarmFragment", "Alarm set.");
+                //alarmManager.cancel(pendingIntent);
+
                 break;
 
             case R.id.clear:

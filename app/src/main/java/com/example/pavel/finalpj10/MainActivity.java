@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         cursor1.moveToFirst();
         check1 = cursor1.getCount();
         check2 = cursor1.getCount();
-
+/*
         TimeString=TaskActivity.TIME;
         if(TimeString != null) {
             Intent intentService = new Intent(this, ReminderService.class);
@@ -88,9 +88,10 @@ public class MainActivity extends AppCompatActivity {
             ReminderService.setServiceAlarm(this, onOffService);
             onOffService = false;
         }
+        }*/
 
 
-        }
+
 
 
         SharedPreferences sp = getSharedPreferences(MY_SETTINGS, Context.MODE_PRIVATE);
