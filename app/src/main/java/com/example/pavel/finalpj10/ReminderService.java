@@ -33,7 +33,7 @@ public class ReminderService extends IntentService {
         NotificationCompat.Builder notifBuilder = new NotificationCompat.Builder(this).
                 setSmallIcon(R.drawable.ic_launcher).
                 setContentTitle("Напоминание").
-                setContentText("Content Text").
+                setContentText(TaskActivity.nazv).
                 setContentIntent(pClickNotifIntent);
         Notification notification = notifBuilder.build();
         NotificationManager manager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);

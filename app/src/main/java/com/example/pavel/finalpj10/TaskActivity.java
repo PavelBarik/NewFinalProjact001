@@ -54,7 +54,7 @@ public class TaskActivity extends AppCompatActivity implements View.OnClickListe
     int mMonth;
     int mDay ;
     int defaultValue = 0;
-static String TIME;
+static String TIME,nazv;
     static final int TIME_DIALOG_ID = 999;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -334,27 +334,32 @@ static String TIME;
                 i = new Intent(TaskActivity.this, MainActivity.class );
                 startActivity(i);
                 TaskActivity.this.finish();
+                if(NAZVANIE != null){
+                nazv = NAZVANIE;}else{
+                    nazv = "Нет названия";
+                }
 
-                Log.i("Готово", "setAlarm");
+                if(mDay==25 && TIME != Null) {
+                    Log.i("Готово", "setAlarm");
 
-                Intent intent = new Intent(TaskActivity.this, ReminderService.class);
-                intent.setAction(Intent.ACTION_MAIN);
-                intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                    Intent intent = new Intent(TaskActivity.this, ReminderService.class);
+                    intent.setAction(Intent.ACTION_MAIN);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 
-                PendingIntent pendingIntent = PendingIntent.getService(TaskActivity.this, 0,
-                        intent, 0);
+                    PendingIntent pendingIntent = PendingIntent.getService(TaskActivity.this, 0,
+                            intent, 0);
 
-                int alarmType = AlarmManager.RTC;
-                final int FIFTEEN_SEC_MILLIS = 15000;
+                    int alarmType = AlarmManager.RTC;
+                    final int FIFTEEN_SEC_MILLIS = 30000;
 
-                AlarmManager alarmManager = (AlarmManager)
-                        TaskActivity.this.getSystemService(TaskActivity.this.ALARM_SERVICE);
+                    AlarmManager alarmManager = (AlarmManager)
+                            TaskActivity.this.getSystemService(TaskActivity.this.ALARM_SERVICE);
 
-                alarmManager.setExact(alarmType, System.currentTimeMillis() + FIFTEEN_SEC_MILLIS,
-                         pendingIntent);
-                Log.i("RepeatingAlarmFragment", "Alarm set.");
-                //alarmManager.cancel(pendingIntent);
-
+                    alarmManager.setExact(alarmType, System.currentTimeMillis() + FIFTEEN_SEC_MILLIS,
+                            pendingIntent);
+                    Log.i("RepeatingAlarmFragment", "Alarm set.");
+                    //alarmManager.cancel(pendingIntent);
+                }
                 break;
 
             case R.id.clear:
